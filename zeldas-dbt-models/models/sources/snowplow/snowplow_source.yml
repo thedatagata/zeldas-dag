@@ -1,0 +1,145 @@
+version: 2
+
+sources: 
+  - name: snowplow 
+    description: bigquery dataset containing event stream data loaded from snowplow pipeline
+    database: snowplow-gcp-integration 
+    dataset: sp_snowplow_db 
+
+    tables: 
+      - name: events 
+        description: table containing all events from snowplow pipeline
+        loaded_at_field: load_tstamp
+        freshness:
+          warn_after: {count: 1, period: day}
+          error_after: {count: 2, period: day} 
+        columns: 
+          - name: app_id
+          - name: platform
+          - name: etl_timestamp
+          - name: collector_tstamp
+          - name: dvce_created_tstamp
+          - name: event
+          - name: event_id
+          - name: txn_id
+          - name: name_tracker
+          - name: v_tracker
+          - name: v_collector
+          - name: v_etl
+          - name: user_id
+          - name: user_ipaddress
+          - name: user_fingerprint
+          - name: domain_userid 
+          - name: domain_sessionidx
+          - name: network_userid
+          - name: geo_country
+          - name: geo_region 
+          - name: geo_city 
+          - name: geo_zipcode
+          - name: geo_latitude 
+          - name: geo_longitude
+          - name: geo_region_name
+          - name: ip_isp
+          - name: ip_organization
+          - name: ip_domain
+          - name: ip_netspeed
+          - name: page_url 
+          - name: page_title 
+          - name: page_referrer
+          - name: page_urlscheme
+          - name: page_urlhost
+          - name: page_urlport
+          - name: page_urlpath
+          - name: page_urlquery
+          - name: page_urlfragment
+          - name: refr_urlscheme
+          - name: refr_urlhost
+          - name: refr_urlport
+          - name: refr_urlpath
+          - name: refr_urlquery
+          - name: refr_urlfragment
+          - name: refr_medium
+          - name: refr_source
+          - name: refr_term
+          - name: mkt_medium
+          - name: mkt_source
+          - name: mkt_term
+          - name: mkt_content
+          - name: mkt_campaign
+          - name: se_action
+          - name: se_label
+          - name: se_property
+          - name: se_value
+          - name: tr_orderid 
+          - name: tr_affiliation
+          - name: tr_total
+          - name: tr_tax
+          - name: tr_shipping
+          - name: tr_city
+          - name: tr_state
+          - name: tr_country 
+          - name: ti_orderid
+          - name: ti_sku
+          - name: ti_name 
+          - name: ti_category
+          - name: ti_price
+          - name: ti_quantity
+          - name: pp_xoffset_min
+          - name: pp_xoffset_max
+          - name: pp_yoffset_min
+          - name: pp_yoffset_max
+          - name: useragent
+          - name: br_name
+          - name: br_family
+          - name: br_version
+          - name: br_type
+          - name: br_renderengine
+          - name: br_lang
+          - name: br_features_pdf
+          - name: br_features_flash
+          - name: br_features_java
+          - name: br_features_director
+          - name: br_features_quicktime
+          - name: br_features_realplayer
+          - name: br_features_windowsmedia 
+          - name: br_features_gears 
+          - name: br_features_silverlight 
+          - name: br_cookies 
+          - name: br_colordepth
+          - name: br_viewwidth
+          - name: br_viewheight
+          - name: os_name
+          - name: os_family
+          - name: os_manufacturer 
+          - name: os_timezone 
+          - name: dvce_type
+          - name: dvce_ismobile
+          - name: dvce_screenwidth
+          - name: dvce_screenheight
+          - name: doc_charset
+          - name: doc_width
+          - name: doc_height
+          - name: tr_currency
+          - name: tr_total_base
+          - name: tr_tax_base
+          - name: tr_shipping_base
+          - name: ti_currency
+          - name: ti_price_base
+          - name: base_currency
+          - name: geo_timezone
+          - name: mkt_clickid
+          - name: mkt_network
+          - name: etl_tags
+          - name: dvce_sent_tstamp
+          - name: refr_domain_userid
+          - name: refr_dvce_tstamp
+          - name: derived_contexts
+          - name: domain_sessionid
+          - name: derived_tstamp
+          - name: event_vendor
+          - name: event_name 
+          - name: event_format 
+          - name: event_version
+          - name: event_fingerprint
+          - name: true_tstamp 
+          - name: load_tstamp
