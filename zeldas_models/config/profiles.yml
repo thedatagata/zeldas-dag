@@ -1,0 +1,14 @@
+zeldas_models:
+  outputs:
+    dev:
+      dataset: dbt_yale # The name of the dataset to use in BigQuery
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /Users/data_gata/.dbt/dbt-credentials/dbt-bq-creds.json
+      method: service-account
+      priority: interactive
+      project: snowplow-gcp-integration 
+      location: us-east1
+      threads: 1
+      type: bigquery
+  target: dev

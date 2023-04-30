@@ -1,9 +1,0 @@
-snowplow-bq:
-  target: dev
-  outputs:
-    dev:
-      type: bigquery
-      method: oauth
-      project: snowplow-gcp-integration
-      dataset: dbt_yale
-      threads: 1
